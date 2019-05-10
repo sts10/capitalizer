@@ -4,7 +4,7 @@ This repo's sole purpose is to demonstrate a small issue with Rust's compiler wa
 
 ## The warning we get
 
-If you clone down this repo and run `cargo build` (using rustc 1.33.0 stable), you should get this warning:
+If you clone down this repo and run `cargo build` or (`cargo clippy`) -- using rustc 1.33.0 stable -- , you should get this warning:
 
 ```text
 Compiling capitalizer v0.1.0 (/home/sschlinkert/code/capitalizer)
