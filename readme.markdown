@@ -25,7 +25,7 @@ What's strange about this is that that function, `downcase_this`, _is_ used, bot
 
 The `downcase` module is "mounted" in both `main.rs` and in `lib.rs`. Strangely, only one _version_ on `downcase` is used in both `main.rs` and `lib.rs`, and the other version is unused.
 
-Calling `mod downcase` and `use capitalizer::downcase::downcase_this` in `main.rs`, while calling `use crate::downcase::downcase_this` in `lib.rs` seems to cause the issue. 
+Calling `mod downcase` and `use capitalizer::downcase::downcase_this` in `main.rs`, while calling `use downcase::downcase_this` in `lib.rs` seems to cause the issue. 
 
 As [Graydon explained to me](https://octodon.social/@graydon/102069460491920758) when I showed him a different project experiencing a similar issue: 
 
@@ -37,9 +37,13 @@ Thus I'm, at least informally, going to refer to this as "double mounting."
 
 ## Ways to avoid this warning
 
+Admittedly there are some easy ways to not get the warning, many of which developers may use in the first place. Here are a few easy ones I've found.
+
 1. If we have `use crate::downcase::downcase_this` in both main.rs and lib.rs, we don't get the warning.
 
-2. If you remove `mod downcase` from `main.rs`, the warning also goes away. So:
+2. If we have `use downcase::downcase_this` in both main.rs and lib.rs, we don't get the warning.
+
+3. If you remove `mod downcase` from `main.rs`, the warning also goes away. So:
 
 ```rust
 // main.rs
@@ -52,7 +56,7 @@ pub mod downcase;
 use crate::downcase::downcase_this;
 ```
 
-Interestingly, doing the equivalent of solution #1 in [my larger project](https://github.com/sts10/medic/tree/reorg) did not work as well as solution #2.
+Interestingly, doing the equivalent of solution #1 or #2 in [my larger project](https://github.com/sts10/medic/tree/reorg) did not work as well as solution #3.
 
 ## A guess at what the warning should say
 
