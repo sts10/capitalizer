@@ -59,3 +59,16 @@ Ideally the compiler would give a more accurate warning here, explaining to the 
 However I'm not sure if it's a bad thing to "double mount". If it's not a bad thing, maybe no warning should be given at all. 
 
 Conversely, there may be real issues with double-mounting that I'm unable to understand.
+
+## More about my system
+
+```text
+> rustc --version
+rustc 1.33.0 (2aa4c46cf 2019-02-28)
+
+> cargo --version
+cargo 1.33.0 (f099fe94b 2019-02-12)
+
+> uname -a
+Linux sschlinkert 4.18.0-18-generic #19~18.04.1-Ubuntu SMP Fri Apr 5 10:22:13 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+```
