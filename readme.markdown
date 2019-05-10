@@ -52,6 +52,8 @@ pub mod downcase;
 use crate::downcase::downcase_this;
 ```
 
+Interestingly, doing the equivalent of solution #1 in [my larger project](https://github.com/sts10/medic/tree/reorg) did not work as well as solution #2.
+
 ## A guess at what the warning should say
 
 Ideally the compiler would give a more accurate warning here, explaining to the developer they've "double mounted" a module or function from a module. 
