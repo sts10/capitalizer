@@ -1,5 +1,5 @@
 mod downcase;
-use capitalizer::downcase::downcase_this;
+use downcase::downcase_this;
 
 fn main() {
     let greeting = "Hello, world".to_string();
