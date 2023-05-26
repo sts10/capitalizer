@@ -3,6 +3,6 @@ name = "capitalizer"
 version = "0.1.0"
 authors = ["sts10 <sschlinkert@gmail.com>"]
 edition = "2018"
-license = "BlueOak-1.0.0"
+license = "Apache-2.0"
 
 [dependencies]
